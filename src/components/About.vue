@@ -22,7 +22,7 @@
           </b-col>
         </b-row>
       </b-container>
-
+      * icons on this site were Designed by Freepik
     </b-container>
 
   </div>

@@ -3,19 +3,14 @@
     <div class="jumbotron landing">
       <h1>{{msg}}</h1>
       <p class="lead buttons mt-3">
-        app to annotate abstracts
+        {{subheading}}
       </p>
       <p class="buttons mt-3">
         <router-link class="btn btn-primary white" to="/play"> Play Now </router-link>
-        <b-button v-scroll-to="'#learnhow'">Learn How</b-button>
-      </p>
-    </div>
-    <div id="learnhow">
-      <h1>A thing</h1>
-      <p>
 
       </p>
     </div>
+
     <!--<div class="container">
       <div class="row">
         <img class="mx-auto" src="../assets/mainGIF.gif"/>
@@ -39,7 +34,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      msg: 'appstract.',
+      msg: 'Your app',
+      subheading: 'your subheading',
     };
   },
 };

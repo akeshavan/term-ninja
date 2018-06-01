@@ -39,7 +39,7 @@
       </b-container>
 
       <hr>
-
+      * icons on this site were Designed by Freepik
 
 
       <!--<b-container>

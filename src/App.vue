@@ -14,7 +14,7 @@
 
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-      <b-navbar-brand to="/">appstract.</b-navbar-brand>
+      <b-navbar-brand to="/">{{appname}}</b-navbar-brand>
 
       <!-- If the viewport is small, the navbar collapses.
           Everything in b-collapse is what gets collapsed.
@@ -24,6 +24,7 @@
         <!--  Here are links to different routes  -->
         <b-navbar-nav>
           <b-nav-item to="/" exact>Home</b-nav-item>
+          <b-nav-item to="/about" exact>About</b-nav-item>
           <b-nav-item to="/leaderboard">Leaderboard</b-nav-item>
           <b-nav-item to="/play">Play</b-nav-item>
         </b-navbar-nav>
@@ -157,6 +158,7 @@ export default {
   name: 'app',
   data() {
     return {
+      appname: 'Your App',
       userInfo: {},
       allUsers: [],
       anonID: null,
