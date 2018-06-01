@@ -129,11 +129,11 @@ import giraffe from './assets/giraffe.svg';
 import elephant from './assets/elephant.svg';
 import narwhal from './assets/narwhal.svg';
 import monkey from './assets/monkey.svg';
-import jelly_grey from './assets/jelly_gray.svg';
-import giraffe_grey from './assets/giraffe_gray.svg';
-import elephant_grey from './assets/elephant_gray.svg';
-import narwhal_grey from './assets/narwhal_gray.svg';
-import monkey_grey from './assets/monkey_gray.svg';
+import jellyGrey from './assets/jelly_gray.svg';
+import giraffeGrey from './assets/giraffe_gray.svg';
+import elephantGrey from './assets/elephant_gray.svg';
+import narwhalGrey from './assets/narwhal_gray.svg';
+import monkeyGrey from './assets/monkey_gray.svg';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
@@ -141,7 +141,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 Vue.use(VueFire);
 Vue.use(BootstrapVue);
 
-const ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+/* const ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const ID_LENGTH = 8;
 
@@ -151,7 +151,7 @@ const generate = function generate() {
     rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
   }
   return rtn;
-};
+}; */
 
 export default {
   name: 'app',
@@ -178,7 +178,7 @@ export default {
           max: 750,
           character: 'jelly',
           img: jelly,
-          img_grey: jelly_grey,
+          img_grey: jellyGrey,
         },
         2: {
           level: 2,
@@ -186,7 +186,7 @@ export default {
           max: 2000,
           character: 'giraffe',
           img: giraffe,
-          img_grey: giraffe_grey,
+          img_grey: giraffeGrey,
         },
         3: {
           level: 3,
@@ -194,7 +194,7 @@ export default {
           max: 3500,
           character: 'elephant',
           img: elephant,
-          img_grey: elephant_grey,
+          img_grey: elephantGrey,
         },
         4: {
           level: 4,
@@ -202,7 +202,7 @@ export default {
           max: 6000,
           character: 'narwhal',
           img: narwhal,
-          img_grey: narwhal_grey,
+          img_grey: narwhalGrey,
         },
         5: {
           level: 5,
@@ -210,20 +210,14 @@ export default {
           max: 8000,
           character: 'monkey',
           img: monkey,
-          img_grey: monkey_grey,
+          img_grey: monkeyGrey,
         },
       },
     };
   },
 
   mounted() {
-    firebase.auth().signInAnonymously().catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    });
-    this.anonID = generate();
+
   },
 
   firebase: {
@@ -270,7 +264,7 @@ export default {
       this.next();
     },
     updateStatus(status) {
-      console.log('updating status');
+      // console.log('updating status');
       this.status = status;
     },
     next() {
@@ -288,7 +282,7 @@ export default {
       });
     },
     setUser(user) {
-      console.log('setting user', this.userInfo);
+      // console.log('setting user', this.userInfo);
       this.userInfo = user;
     },
     setTutorial(val) {
@@ -300,10 +294,10 @@ export default {
     this.userInfo = firebase.auth().currentUser;
     const self = this;
     firebase.auth().onAuthStateChanged((user) => {
-      console.log('hi');
+      // console.log('hi');
       self.userInfo = user;
     });
-    console.log('app db is', db);
+    // console.log('app db is', db);
   },
 };
 </script>

@@ -7,17 +7,6 @@
       <b-form @submit="onSubmit" validated>
         <b-alert :show="errors.show" variant="danger">{{errors.message}}</b-alert>
 
-        <b-form-group id="emailAddressInputGroup"
-                      label="Email address:"
-                      label-for="emailAddress"
-                      description="We'll never share your email with anyone else.">
-          <b-form-input id="emailAddress"
-                        type="email"
-                        v-model="form.email"
-                        required
-                        placeholder="Enter email">
-          </b-form-input>
-        </b-form-group>
         <b-form-group id="usernameInputGroup"
                       label="Username:"
                       label-for="usernameInput"
@@ -109,11 +98,11 @@
       onSubmit(e) {
         e.preventDefault();
         // check for a unique username
-        console.log('submitted form');
+        // console.log('submitted form');
         firebase.database().ref('users').child(this.form.username).once('value')
         .then((snapshot) => {
           const val = snapshot.val();
-          console.log('val is', val);
+          // console.log('val is', val);
           if (!val) {
             this.createAccount();
           } else {
@@ -134,12 +123,12 @@
       },
 
       createAccount() {
-        firebase.auth().createUserWithEmailAndPassword(this.form.email, this.form.password).then(
+        firebase.auth().createUserWithEmailAndPassword(`${this.form.username}@termninja.com`, this.form.password).then(
           (user) => {
-            console.log('user created', user);
+            // console.log('user created', user);
             this.updateProfile(user);
           }, (err) => {
-          console.log('error', err);
+          // console.log('error', err);
           this.errors.show = true;
           this.errors.message = err.message;
         });

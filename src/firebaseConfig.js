@@ -1,15 +1,18 @@
 import firebase from 'firebase';
 
 // copy/paste this from your firebase console
-var config = {
-  apiKey: "AIzaSyD08blKQnxP3FR1hk6aMDv6YM4mdV8XwoQ",
-  authDomain: "appstract0.firebaseapp.com",
-  databaseURL: "https://appstract0.firebaseio.com",
-  projectId: "appstract0",
-  storageBucket: "appstract0.appspot.com",
-  messagingSenderId: "435321691621"
+/* eslint-disable */
+const config = {
+  apiKey: 'AIzaSyBhpUKnkFnYslY6ZliCRc40t6RduS7_siU',
+  authDomain: 'term-ninja.firebaseapp.com',
+  databaseURL: 'https://term-ninja.firebaseio.com',
+  projectId: 'term-ninja',
+  storageBucket: 'term-ninja.appspot.com',
+  messagingSenderId: '121670279902',
 };
 
 firebase.initializeApp(config);
 
+
 export const db = firebase.database();
+/* eslint-enable */

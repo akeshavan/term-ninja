@@ -11,7 +11,7 @@ Vue.config.productionTip = false;
 let app;
 
 
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(() => {
   if (!app) {
     /* eslint-disable no-new */
     app = new Vue({
@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged((user) => {
       router,
     });
   }
-  console.log('user is', user);
+  // console.log('user is', user);
 });
 
 

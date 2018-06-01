@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import About from '@/components/About';
 import Home from '@/components/Home';
 import Profile from '@/components/Profile';
-import Coins from '@/components/Coins';
 import Play from '@/components/Play';
 import Login from '@/components/Login';
 import SignUp from '@/components/SignUp';
@@ -17,7 +16,7 @@ import config from '../config';
 Vue.use(Router);
 
 const router = new Router({
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     // return desired position
     return { x: 0, y: 0 };
   },
@@ -45,16 +44,11 @@ const router = new Router({
       },
     },
     {
-      path: '/coins/:id',
-      name: 'Coins',
-      component: Coins,
-    },
-    {
       path: '/play',
       name: 'Play',
       component: Play,
       meta: {
-        requiresAuth: false,
+        requiresAuth: true,
       },
     },
     {
@@ -112,10 +106,10 @@ router.beforeEach((to, from, next) => {
   }
 
   if (requiresAdmin) {
-    console.log('requires admin');
+    // console.log('requires admin');
     firebase.database().ref(`/settings/admins/${currentUser.displayName}`).once('value')
     .then((snap) => {
-      console.log('snap is', snap.val());
+      // console.log('snap is', snap.val());
       if (requiresAdmin && !snap.val()) next('unauthorized');
       else next();
     });

@@ -25,7 +25,7 @@
 
       <b-container fluid class="p-4">
         <b-row>
-          <b-col v-for="lev in levels" v-if="lev.img">
+          <b-col v-for="lev in levels" v-if="lev.img" :key="lev.level">
             <div >
               <b-img fluid class="pokemon" :src="lev.img" alt="Thumbnail" v-if="lev.level <= currentLevel.level"/>
               <b-img fluid class="pokemon" :src="lev.img_grey" alt="Thumbnail" v-else/>
@@ -72,8 +72,8 @@
 </style>
 
 <script>
-import _ from 'lodash';
-import { db } from '../firebaseConfig';
+// import _ from 'lodash';
+// import { db } from '../firebaseConfig';
 
 export default {
   name: 'profile',
