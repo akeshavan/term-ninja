@@ -6,14 +6,13 @@
       <b-alert :show="errors.show" variant="danger">{{errors.message}}</b-alert>
       <b-form @submit="onSubmit">
         <b-form-group id="emailAddressInputGroup"
-                      label="Email address:"
+                      label="Username:"
                       label-for="emailAddress"
                       >
           <b-form-input id="emailAddress"
-                        type="email"
                         v-model="form.email"
                         required
-                        placeholder="Enter email">
+                        placeholder="Enter Username">
           </b-form-input>
         </b-form-group>
 
@@ -67,7 +66,7 @@
     methods: {
       onSubmit(e) {
         e.preventDefault();
-        firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then(
+        firebase.auth().signInWithEmailAndPassword(`${this.form.email}@termninja.com`, this.form.password).then(
                   (user) => {
                     // console.log('user', user);
                     this.$emit('login', user);

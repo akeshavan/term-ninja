@@ -10,7 +10,7 @@
     -->
     <div class="content">
 
-    <b-navbar toggleable="md" type="dark" variant="danger" sticky>
+    <b-navbar toggleable="md" type="dark" variant="success" sticky>
 
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
@@ -77,17 +77,19 @@
     </b-modal>
 
     <div class="router">
-      <router-view :userInfo="userInfo"
-                   :userData="userData"
-                   :allUsers="allUsers"
-                   :levels="levels"
-                   :anonID="anonID"
-                   :currentLevel="currentLevel"
-                   v-on:taken_tutorial="setTutorial"
-                   v-on:updatedN="updateN"
-                   v-on:updatedStatus="updateStatus"
-                   ref="routeView"
-                   />
+      <keep-alive include="play">
+        <router-view :userInfo="userInfo"
+                     :userData="userData"
+                     :allUsers="allUsers"
+                     :levels="levels"
+                     :anonID="anonID"
+                     :currentLevel="currentLevel"
+                     v-on:taken_tutorial="setTutorial"
+                     v-on:updatedN="updateN"
+                     v-on:updatedStatus="updateStatus"
+                     ref="routeView"
+                     />
+      </keep-alive>
     </div>
   </div>
     <!--<div class="footer bg-dark">
@@ -158,7 +160,7 @@ export default {
   name: 'app',
   data() {
     return {
-      appname: 'Your App',
+      appname: 'term ninja',
       userInfo: {},
       allUsers: [],
       anonID: null,

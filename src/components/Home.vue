@@ -34,8 +34,8 @@ export default {
   name: 'Home',
   data() {
     return {
-      msg: 'Your app',
-      subheading: 'your subheading',
+      msg: 'term ninja',
+      subheading: 'define all the terms and win a prize',
     };
   },
 };

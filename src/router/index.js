@@ -4,6 +4,7 @@ import About from '@/components/About';
 import Home from '@/components/Home';
 import Profile from '@/components/Profile';
 import Play from '@/components/Play';
+import PlayTerm from '@/components/PlayTerm';
 import Login from '@/components/Login';
 import SignUp from '@/components/SignUp';
 import Terms from '@/components/Terms';
@@ -47,6 +48,14 @@ const router = new Router({
       path: '/play',
       name: 'Play',
       component: Play,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/play/:id',
+      name: 'Play',
+      component: PlayTerm,
       meta: {
         requiresAuth: true,
       },

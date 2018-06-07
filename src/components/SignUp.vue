@@ -123,6 +123,7 @@
       },
 
       createAccount() {
+        // TODO: make sure this.form.username doesn't have an @ in it. It should be alphanumeric
         firebase.auth().createUserWithEmailAndPassword(`${this.form.username}@termninja.com`, this.form.password).then(
           (user) => {
             // console.log('user created', user);
